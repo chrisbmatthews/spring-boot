@@ -41,6 +41,12 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
+    public Customer deleteCustomer(Customer c) {
+        this.entityManager.remove(c);
+        return c;
+    }
+
+    @Override
     public List<Customer> listCustomers() {
         return this.entityManager.createQuery("select c from Customer c").getResultList();
     }
