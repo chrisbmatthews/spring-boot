@@ -26,7 +26,6 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    @Transactional
     public List<Customer> saveCustomers(List<Customer> customers, int explodeAfterSavingThisMany) {
         List<Customer> ret = new ArrayList<>();
 
@@ -47,7 +46,6 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    @Transactional
     public void deleteAllCustomers() {
         List<Customer> toDelete = this.listCustomers();
         for (Customer c : toDelete) {
@@ -56,7 +54,6 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    @Transactional
     public Customer saveCustomer(Customer c, boolean explode) {
         return dao.saveCustomer(c, explode);
     }

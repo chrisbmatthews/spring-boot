@@ -24,7 +24,6 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    @Transactional
     public Customer saveCustomer(Customer c, boolean explode) {
         Customer ret = null;
 
