@@ -5,9 +5,8 @@ import com.devbasemedia.demorest.domain.Education;
 import com.devbasemedia.demorest.domain.Person;
 import com.devbasemedia.demorest.domain.State;
 import com.devbasemedia.demorest.persist.PersonRepository;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -16,7 +15,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class DemoRestApplicationTests {
 	@Autowired
@@ -38,7 +36,7 @@ public class DemoRestApplicationTests {
 	 * @throws Exception
 	 */
 	@Test
-	@Ignore
+    //@Ignore
 	public void persistPerson() throws Exception {
 		Person person = this.createPerson("Homer");
 		repo.save(person);
