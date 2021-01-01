@@ -6,10 +6,7 @@ import com.devbasemedia.demorest.domain.Person;
 import com.devbasemedia.demorest.domain.State;
 import com.devbasemedia.demorest.persist.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -36,5 +33,17 @@ public class PersonRest {
         }
 
         return repo.findByFirstName(firstName);
+    }
+
+    @RequestMapping(method=RequestMethod.POST, value="/person")
+    public Person savePerson(@RequestBody Person person) throws ParseException {
+        /*if (person == null) {
+            throw new ParseException("No person provided");
+        }*/
+
+        repo.deleteByFirstName(person.getFirstName());
+        Person ret = repo.save(person);
+
+        return ret;
     }
 }
